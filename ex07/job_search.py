@@ -136,7 +136,7 @@ def parse_html(html: str) -> (list[JuniorsRoJob], bool):
 if __name__ == "__main__":
     parser = ArgumentParser(prog="job_finder", description="finds jobs!")
     parser.add_argument("search_text", help="The keyword to search on juniors.ro")
-    parser.add_argument("--job-types", nargs="+", help="The type of job to look for")
+    parser.add_argument("--job-types", nargs="+", help=f"A list with the types of jobs you are looking for. Can be: {', '.join(map(lambda x: x.name.lower(), iter(JuniorsRoJobType)))}")
     parser.add_argument("--remote", action="store_true", help="Whether the job should be remote")
     parser.add_argument("--experience", nargs="+", help="list of numbers: 0 - no experience; 1 - less than a year; 2 - more than a year")
     parser.add_argument("--last-days", help="Shows only offers posted in the last specified number of days")
